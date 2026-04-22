@@ -1,0 +1,74 @@
+/* Botones de navegación de página */
+.btn-group {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+  padding: 0 20px;
+}
+
+.btn-listar {
+  padding: 10px 24px;
+  border: 2px solid #7c3aed;
+  background-color: transparent;
+  color: #7c3aed;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-listar:hover {
+  background-color: #7c3aed;
+  color: white;
+}
+
+.btn-agregar {
+  padding: 10px 24px;
+  border: none;
+  background-color: #7c3aed;
+  color: white;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-agregar:hover {
+  background-color: #6d28d9;
+}
+
+/* Botón editar en la tabla */
+.btn-editar {
+  padding: 6px 16px;
+  border: none;
+  background-color: #3b82f6;
+  color: white;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-editar:hover {
+  background-color: #2563eb;
+}
+
+/* Botón eliminar en la tabla */
+.btn-eliminar {
+  padding: 6px 16px;
+  border: none;
+  background-color: #ef4444;
+  color: white;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-eliminar:hover {
+  background-color: #dc2626;
+}
