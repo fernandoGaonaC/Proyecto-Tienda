@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-UsersApplication<tienda_generica_users>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.tiendagenerica.users.UsersApplication",
+            "projectName": "tienda_generica_users",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
