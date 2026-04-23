@@ -1,0 +1,82 @@
+services:
+
+  # ============================
+  # BASE DE DATOS MYSQL
+  # ============================
+  mysql:
+    image: mysql:8
+    container_name: mysql_tienda
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tienda_generica
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - tienda_net
+
+  # ============================
+  # MICROSERVICIO USUARIOS
+  # ============================
+  backend-usuarios:
+    build: ./tienda_generica_users       # <- RUTA CORRECTA
+    container_name: ms_usuarios
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/tienda_generica?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    ports:
+      - "8081:8081"
+    networks:
+      - tienda_net
+
+  # ============================
+  # MICROSERVICIO PRODUCTOS
+  # ============================
+  backend-productos:
+    build: ./tienda_generica_producto-provedores   # <- RUTA CORRECTA
+    container_name: ms_productos
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/tienda_generica?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    ports:
+      - "8082:8082"
+    networks:
+      - tienda_net
+
+  # ============================
+  # MICROSERVICIO REPORTES
+  # ============================
+  backend-reportes:
+    build: ./tienda_generica_ventas-reportes       # <- RUTA CORRECTA
+    container_name: ms_reportes
+    depends_on:
+      - mysql
+      - backend-usuarios
+      - backend-productos
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/tienda_generica?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+
+      MICRO_USUARIOS_URL: http://backend-usuarios:8081/api/usuarios
+      MICRO_PRODUCTOS_URL: http://backend-productos:8082/api/productos
+    ports:
+      - "8083:8083"
+    networks:
+      - tienda_net
+
+
+volumes:
+  mysql_data:
+
+networks:
+  tienda_net:
+    driver: bridge
