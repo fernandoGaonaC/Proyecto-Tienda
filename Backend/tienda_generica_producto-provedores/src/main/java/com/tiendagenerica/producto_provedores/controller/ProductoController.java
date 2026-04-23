@@ -41,7 +41,6 @@ public class ProductoController {
         return ResponseEntity.ok(productoService.listarProductosPorProveedor(nit));
     }
 
-    // PUT /api/productos/catalogo/actualizar/{codigo}
     @PutMapping("/actualizar/{codigo}")
     public ResponseEntity<Producto> actualizarProducto(
             @PathVariable Long codigo,
