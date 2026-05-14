@@ -15,7 +15,6 @@ function ListaUsuarios({ Usuarios, Eliminar, Editar }: Prop) {
           <th>Nombre</th>
           <th>Usuario</th>
           <th>Correo</th>
-          <th>Contraseña</th>
           <th>Estado</th>
           <th>Editar</th>
           <th>Eliminar</th>
@@ -29,7 +28,6 @@ function ListaUsuarios({ Usuarios, Eliminar, Editar }: Prop) {
             <td>{u.nombreUsuario}</td>
             <td>{u.usuario}</td>
             <td>{u.emailUsuario}</td>
-            <td>{u.password}</td>
             <td>{u.activo ? "Activo" : "Inactivo"}</td>
             <td>
               <button

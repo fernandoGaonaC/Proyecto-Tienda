@@ -1,12 +1,18 @@
 import axios from "axios";
 import  type {Provedor} from '../types/Provedor'
-const API="http://localhost:8082/api/productos/proveedores";
+const API="http://localhost/api/productos/proveedores";
 
-const ProvedorServicio={
+export const ProvedorServicio={
     Agregar:(Provedor:Provedor)=>(
         axios.post(`${API}/guardar`,Provedor)
     ),
     Listar:()=>{
-        axios.get<Provedor[]>(`${API}/listar`)
-    }
+        return axios.get<Provedor[]>(`${API}/listar`)
+    },
+    eliminar:(nit:number)=>(
+        axios.delete(`${API}/eliminar/${nit}`)
+    ),
+    actualizar:(nit:number , provedor:Provedor)=>(
+        axios.put(`${API}/actualizar/${nit}`,provedor)
+    )
 }

@@ -66,7 +66,7 @@ function UsuarioPage() {
 
   return (
     <>
-      {/* Toaster global — ponlo una sola vez aquí */}
+      
       <Toaster
         position="top-right"
         toastOptions={{

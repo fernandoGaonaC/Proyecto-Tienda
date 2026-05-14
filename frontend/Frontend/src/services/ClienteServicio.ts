@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { Cliente } from "../types/Cliente";
 
-const API = "http://localhost:8081/api/usuarios/clientes";
+const API = "http://localhost/api/usuarios/clientes";
 
 export const ClienteServicio = {
   listar: () => axios.get<Cliente[]>(`${API}/listar`),
