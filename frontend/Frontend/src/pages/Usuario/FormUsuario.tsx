@@ -94,7 +94,7 @@ function FormUsuario({ Data, onSubmit }: Props) {
       <div className="form-group">
         <label>Contraseña</label>
         <input
-          type="password"
+          type="text"
           name="password"
           value={usuario.password}
           onChange={Actualizar}

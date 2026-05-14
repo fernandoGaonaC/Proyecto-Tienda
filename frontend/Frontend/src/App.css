@@ -120,3 +120,12 @@
 h1{
   text-align: center;
 }
+.cliente-info {
+  display: flex;
+  gap: 20px;
+  padding: 10px 14px;
+  background: #ede9fe;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #5b21b6;
+}

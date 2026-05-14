@@ -1,10 +1,9 @@
-export interface Producto {
-  codigoProducto: number;
+export interface ProductoCrear {
   nombreProducto: string;
   precioCompra: number;
   precioVenta: number;
   ivaCompra: number;
   nitProveedor: number;
   activo: boolean;
-  fechaCreacion: string; // ISO 8601: "2025-04-25T00:00:00"
+  fechaCreacion: string;
 }
