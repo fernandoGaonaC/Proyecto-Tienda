@@ -95,10 +95,10 @@ function ProductosPage() {
           activo:
             String(p.activo).toLowerCase() === "verdadero" ||
             p.activo === true,
-          fechaCreacion: fechaExcelAISO(p.fechaCreacion), // ← corregido
+          fechaCreacion: fechaExcelAISO(p.fechaCreacion), 
         }));
 
-      const response = await ProductoServicio.guardarMasivo(productosLimpios);
+     /* const response = await ProductoServicio.guardarMasivo(productosLimpios);*/
 
   
       setProductos([]);
