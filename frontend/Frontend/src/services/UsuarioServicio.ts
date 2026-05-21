@@ -1,7 +1,7 @@
 import type { Usuario } from "../types/Usuario";
 import axios from "axios";
 
-const API = "http://localhost/api/usuarios";
+const API = "http://backend-usuarios_1:8001/api/usuarios";
 
 export const UsuarioServicio = {
   listar: () => {

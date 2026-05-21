@@ -2,7 +2,7 @@ import axios from "axios";
 import type { Producto } from "../types/Producto";
 
 
-const API = "http://localhost/api/productos/catalogo";
+const API = "http://backend-productos_1:8002/api/productos/catalogo";
 export const ProductoServicio = {
   listar: () => axios.get(`${API}/listar`),
 

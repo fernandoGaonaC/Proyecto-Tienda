@@ -12,6 +12,7 @@ function ProductosPage() {
 
   useEffect(() => {
     cargarProductosDB();
+    console.log(productos)
   }, []);
 
   const cargarProductosDB = async () => {
@@ -65,10 +66,12 @@ function ProductosPage() {
     reader.onload = (e: any) => {
       const data = new Uint8Array(e.target.result);
       const workbook = XLSX.read(data, { type: "array" });
+      console.log(workbook);
       const sheet = workbook.Sheets[workbook.SheetNames[0]];
       setProductos(XLSX.utils.sheet_to_json<any>(sheet));
     };
     reader.readAsArrayBuffer(file);
+
   };
 
   // ← NUEVO: convierte fecha serial de Excel a ISO string
@@ -98,7 +101,7 @@ function ProductosPage() {
           fechaCreacion: fechaExcelAISO(p.fechaCreacion), 
         }));
 
-     /* const response = await ProductoServicio.guardarMasivo(productosLimpios);*/
+      const response = await ProductoServicio.guardarMasivo(productosLimpios);
 
   
       setProductos([]);

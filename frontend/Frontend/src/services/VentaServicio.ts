@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { Venta } from "../types/ventas";
 
-const API = "http://localhost/api/ventas"; 
+const API = "http://backend-reportes_1:8003/api/ventas"; 
 
 export const VentaServicio = {
   registrar: (venta: Venta) => axios.post(`${API}/registrar/guardar`, venta),
