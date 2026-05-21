@@ -1,6 +1,6 @@
 import axios from "axios";
 import  type {Provedor} from '../types/Provedor'
-const API="http://backend-productos_1:8002/api/productos/proveedores";
+const API="/api/productos/proveedores";
 
 export const ProvedorServicio={
     Agregar:(Provedor:Provedor)=>(
