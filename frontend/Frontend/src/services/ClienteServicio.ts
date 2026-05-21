@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { Cliente } from "../types/Cliente";
 
-const API = "http://backend-usuarios_1:8001/api/usuarios/clientes";
+const API = "/api/usuarios/clientes";
 
 export const ClienteServicio = {
   listar: () => axios.get<Cliente[]>(`${API}/listar`),
